@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///D:/Projects/react/react-nextjs-cursor-ai/sample-ai-nextjs-app/app/page.tsx"],"sourcesContent":["import { redirect } from \"next/navigation\";\n\nconst Home = () => {\n  redirect(\"/task-manager\");\n};\n\nexport default Home;\n"],"names":[],"mappings":";;;;AAAA;AAAA;;AAEA,MAAM,OAAO;IACX,IAAA,iMAAQ,EAAC;AACX;uCAEe"}}]
+}
