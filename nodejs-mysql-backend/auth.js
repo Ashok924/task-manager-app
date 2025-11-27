@@ -5,8 +5,8 @@ dotenv.config();
 
 const SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production";
 
-export function generateToken(userId, email) {
-  return jwt.sign({ userId, email }, SECRET, { expiresIn: "7d" });
+export function generateToken(userId, email, name) {
+  return jwt.sign({ userId, email, name }, SECRET, { expiresIn: "7d" });
 }
 
 export function verifyToken(token) {

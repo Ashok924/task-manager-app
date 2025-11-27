@@ -12,7 +12,7 @@ export async function signup(email, name, password) {
     );
 
     const userId = result.insertId;
-    const token = generateToken(userId, email);
+    const token = generateToken(userId, email, name);
 
     return { success: true, userId, email, name, token };
   } catch (error) {
@@ -39,7 +39,7 @@ export async function login(email, password) {
       return { success: false, error: "Invalid email or password" };
     }
 
-    const token = generateToken(user.id, user.email);
+    const token = generateToken(user.id, user.email, user.name);
     return { success: true, userId: user.id, email: user.email, name: user.name, token };
   } catch (error) {
     throw error;

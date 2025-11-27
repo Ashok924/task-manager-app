@@ -35,4 +35,33 @@ router.post("/login", async (req, res) => {
   }
 });
 
+import { generateToken } from "../auth.js";
+import passport from "../config/passport.js";
+
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
+
+router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", { session: false, failureRedirect: `${FRONTEND_URL}/login?error=auth_failed` }),
+  (req, res) => {
+    const user = req.user;
+    const token = generateToken(user.id, user.email, user.name);
+    res.redirect(`${FRONTEND_URL}/?token=${token}&name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}&id=${user.id}`);
+  }
+);
+
+router.get("/microsoft", passport.authenticate("microsoft", { scope: ["user.read"] }));
+
+router.get(
+  "/microsoft/callback",
+  passport.authenticate("microsoft", { session: false, failureRedirect: `${FRONTEND_URL}/login?error=auth_failed` }),
+  (req, res) => {
+    const user = req.user;
+    const token = generateToken(user.id, user.email, user.name);
+    res.redirect(`${FRONTEND_URL}/?token=${token}&name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}&id=${user.id}`);
+  }
+);
+
 export default router;

@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { initializeDatabase } from "./database.js";
 import authRoutes from "./routes/auth.js";
 import taskRoutes from "./routes/tasks.js";
+import session from "express-session";
 
 dotenv.config();
 
@@ -14,6 +15,16 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || "your-secret-key",
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: process.env.NODE_ENV === "production" }
+}));
+
+import passport from "./config/passport.js";
+app.use(passport.initialize());
 
 // Routes
 app.use("/api/auth", authRoutes);

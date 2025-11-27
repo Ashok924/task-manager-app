@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, ReactNode, useMemo } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode, useMemo, useCallback } from "react";
 
 interface User {
   id: string;
@@ -15,6 +15,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<boolean>;
   signup: (name: string, email: string, password: string) => Promise<boolean>;
   logout: () => void;
+  handleSocialLogin: (token: string, user: User) => void;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -91,7 +92,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => window.removeEventListener("storage", onStorage);
   }, []);
 
-  const login = async (email: string, password: string): Promise<boolean> => {
+  const login = useCallback(async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, {
@@ -120,9 +121,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
-  const signup = async (
+  const signup = useCallback(async (
     name: string,
     email: string,
     password: string
@@ -155,13 +156,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
-  const logout = () => {
+  const handleSocialLogin = useCallback((token: string, userData: User) => {
+    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("token", token);
+    setAuthCookie("1");
+  }, []);
+
+  const logout = useCallback(() => {
     setUser(null);
     localStorage.removeItem("user");
     clearAuthCookie();
-  };
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -171,6 +179,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       login,
       signup,
       logout,
+      handleSocialLogin,
     }),
     [user, isLoading, login, signup, logout]
   );

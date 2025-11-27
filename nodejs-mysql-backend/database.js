@@ -2,7 +2,7 @@ import pool from "./db.js";
 
 export async function initializeDatabase() {
   const connection = await pool.getConnection();
-
+  console.log(`Database connection established`);
   try {
     // Create users table
     await connection.execute(`
