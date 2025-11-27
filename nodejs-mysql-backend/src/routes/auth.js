@@ -1,0 +1,56 @@
+import express from "express";
+import { signup, login } from "../services/authService.js";
+
+const router = express.Router();
+
+/**
+ * POST /api/auth/signup
+ * Register a new user
+ */
+router.post("/signup", async (req, res) => {
+    try {
+        const { email, name, password } = req.body;
+
+        if (!email || !name || !password) {
+            return res.status(400).json({ error: "Email, name, and password required" });
+        }
+
+        const result = await signup(email, name, password);
+
+        if (!result.success) {
+            return res.status(400).json(result);
+        }
+
+        res.status(201).json(result);
+    } catch (error) {
+        console.error("Signup error:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+/**
+ * POST /api/auth/login
+ * Authenticate user
+ */
+router.post("/login", async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).json({ error: "Email and password required" });
+        }
+
+        const result = await login(email, password);
+
+        if (!result.success) {
+            return res.status(401).json(result);
+        }
+
+        res.json(result);
+    } catch (error) {
+        console.error("Login error:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+export default router;

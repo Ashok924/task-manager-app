@@ -958,6 +958,232 @@ const Footer = ()=>{
 };
 const __TURBOPACK__default__export__ = Footer;
 }),
+"[project]/app/components/Alert.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>__TURBOPACK__default__export__
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+"use client";
+;
+;
+const Alert = ({ type, message, onClose, autoClose = true, duration = 5000 })=>{
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (autoClose && onClose) {
+            const timer = setTimeout(onClose, duration);
+            return ()=>clearTimeout(timer);
+        }
+    }, [
+        autoClose,
+        duration,
+        onClose
+    ]);
+    const getAlertStyles = ()=>{
+        switch(type){
+            case "success":
+                return {
+                    bg: "bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/40 dark:to-green-950/40",
+                    border: "border-emerald-200 dark:border-emerald-800",
+                    text: "text-emerald-800 dark:text-emerald-200",
+                    icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                        className: "h-5 w-5",
+                        fill: "currentColor",
+                        viewBox: "0 0 20 20",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            fillRule: "evenodd",
+                            d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z",
+                            clipRule: "evenodd"
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/Alert.tsx",
+                            lineNumber: 38,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/Alert.tsx",
+                        lineNumber: 37,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0))
+                };
+            case "error":
+                return {
+                    bg: "bg-gradient-to-r from-red-50 to-rose-50 dark:from-red-950/40 dark:to-rose-950/40",
+                    border: "border-red-200 dark:border-red-800",
+                    text: "text-red-800 dark:text-red-200",
+                    icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                        className: "h-5 w-5",
+                        fill: "currentColor",
+                        viewBox: "0 0 20 20",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            fillRule: "evenodd",
+                            d: "M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z",
+                            clipRule: "evenodd"
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/Alert.tsx",
+                            lineNumber: 53,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/Alert.tsx",
+                        lineNumber: 52,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0))
+                };
+            case "warning":
+                return {
+                    bg: "bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-950/40 dark:to-yellow-950/40",
+                    border: "border-amber-200 dark:border-amber-800",
+                    text: "text-amber-800 dark:text-amber-200",
+                    icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                        className: "h-5 w-5",
+                        fill: "currentColor",
+                        viewBox: "0 0 20 20",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            fillRule: "evenodd",
+                            d: "M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z",
+                            clipRule: "evenodd"
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/Alert.tsx",
+                            lineNumber: 68,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/Alert.tsx",
+                        lineNumber: 67,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0))
+                };
+            case "info":
+            default:
+                return {
+                    bg: "bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/40 dark:to-cyan-950/40",
+                    border: "border-blue-200 dark:border-blue-800",
+                    text: "text-blue-800 dark:text-blue-200",
+                    icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                        className: "h-5 w-5",
+                        fill: "currentColor",
+                        viewBox: "0 0 20 20",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            fillRule: "evenodd",
+                            d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z",
+                            clipRule: "evenodd"
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/Alert.tsx",
+                            lineNumber: 84,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/Alert.tsx",
+                        lineNumber: 83,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0))
+                };
+        }
+    };
+    const styles = getAlertStyles();
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: `
+        animate-slide-in-down
+        rounded-xl border-2 ${styles.border} ${styles.bg}
+        p-4 shadow-lg backdrop-blur-sm
+        transition-all duration-300 ease-in-out
+        hover:shadow-xl
+      `,
+        role: "alert",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex items-start gap-3",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: `flex-shrink-0 ${styles.text}`,
+                        children: styles.icon
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/Alert.tsx",
+                        lineNumber: 109,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex-1",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: `text-sm font-medium ${styles.text}`,
+                            children: message
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/Alert.tsx",
+                            lineNumber: 113,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/Alert.tsx",
+                        lineNumber: 112,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    onClose && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: onClose,
+                        className: `
+              flex-shrink-0 rounded-lg p-1 transition-colors
+              ${styles.text} opacity-70 hover:opacity-100
+              hover:bg-black/5 dark:hover:bg-white/5
+            `,
+                        "aria-label": "Close alert",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            className: "h-4 w-4",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            strokeWidth: 2,
+                            stroke: "currentColor",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round",
+                                d: "M6 18L18 6M6 6l12 12"
+                            }, void 0, false, {
+                                fileName: "[project]/app/components/Alert.tsx",
+                                lineNumber: 134,
+                                columnNumber: 15
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, void 0, false, {
+                            fileName: "[project]/app/components/Alert.tsx",
+                            lineNumber: 127,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/app/components/Alert.tsx",
+                        lineNumber: 118,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/components/Alert.tsx",
+                lineNumber: 108,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            autoClose && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-2 h-1 w-full overflow-hidden rounded-full bg-black/10 dark:bg-white/10",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: `h-full ${type === "success" ? "bg-emerald-500" : type === "error" ? "bg-red-500" : type === "warning" ? "bg-amber-500" : "bg-blue-500"} animate-progress`,
+                    style: {
+                        animationDuration: `${duration}ms`
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/app/components/Alert.tsx",
+                    lineNumber: 145,
+                    columnNumber: 11
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/app/components/Alert.tsx",
+                lineNumber: 144,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/components/Alert.tsx",
+        lineNumber: 98,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const __TURBOPACK__default__export__ = Alert;
+}),
 "[project]/app/components/LoginForm.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -971,7 +1197,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$AuthContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/contexts/AuthContext.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$FormContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/contexts/FormContext.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$PageTransition$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/PageTransition.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Alert$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/Alert.tsx [app-ssr] (ecmascript)");
 "use client";
+;
 ;
 ;
 ;
@@ -981,7 +1209,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$PageTra
 const LoginForm = ()=>{
     const [email, setEmail] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [password, setPassword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
-    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [alert, setAlert] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [successRedirecting, setSuccessRedirecting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const { login } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$AuthContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAuth"])();
@@ -1004,12 +1232,16 @@ const LoginForm = ()=>{
     }, []);
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        setError("");
+        setAlert(null);
         setIsLoading(true);
         try {
             const success = await login(email, password);
             if (success) {
-                // show success loader for 5 seconds before navigating
+                // Show success alert
+                setAlert({
+                    type: "success",
+                    message: "Login successful! Redirecting to dashboard..."
+                });
                 setSuccessRedirecting(true);
                 const t = window.setTimeout(async ()=>{
                     try {
@@ -1020,14 +1252,20 @@ const LoginForm = ()=>{
                         closeForms();
                         router.push("/task-manager");
                     }
-                }, 5000);
+                }, 3000); // Reduced to 3 seconds to match alert duration
                 // store cleanup on window in case component unmounts
                 window.__loginRedirectCleanup = ()=>window.clearTimeout(t);
             } else {
-                setError("Invalid email or password");
+                setAlert({
+                    type: "error",
+                    message: "Invalid email or password. Please try again."
+                });
             }
         } catch (err) {
-            setError("An error occurred. Please try again.");
+            setAlert({
+                type: "error",
+                message: "An error occurred. Please check your connection and try again."
+            });
         } finally{
             setIsLoading(false);
         }
@@ -1046,24 +1284,27 @@ const LoginForm = ()=>{
                         children: "Login"
                     }, void 0, false, {
                         fileName: "[project]/app/components/LoginForm.tsx",
-                        lineNumber: 77,
+                        lineNumber: 79,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/app/components/LoginForm.tsx",
-                    lineNumber: 76,
+                    lineNumber: 78,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                     onSubmit: handleSubmit,
                     className: "space-y-4",
                     children: [
-                        error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "rounded-lg bg-red-50 p-3 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400",
-                            children: error
+                        alert && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Alert$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            type: alert.type,
+                            message: alert.message,
+                            onClose: ()=>setAlert(null),
+                            autoClose: alert.type === "success",
+                            duration: 3000
                         }, void 0, false, {
                             fileName: "[project]/app/components/LoginForm.tsx",
-                            lineNumber: 84,
+                            lineNumber: 86,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1074,7 +1315,7 @@ const LoginForm = ()=>{
                                     children: "Email"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/LoginForm.tsx",
-                                    lineNumber: 90,
+                                    lineNumber: 96,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1087,13 +1328,13 @@ const LoginForm = ()=>{
                                     placeholder: "Enter your email"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/LoginForm.tsx",
-                                    lineNumber: 96,
+                                    lineNumber: 102,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/LoginForm.tsx",
-                            lineNumber: 89,
+                            lineNumber: 95,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1104,7 +1345,7 @@ const LoginForm = ()=>{
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/LoginForm.tsx",
-                                    lineNumber: 108,
+                                    lineNumber: 114,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1117,13 +1358,13 @@ const LoginForm = ()=>{
                                     placeholder: "Enter your password"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/LoginForm.tsx",
-                                    lineNumber: 114,
+                                    lineNumber: 120,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/LoginForm.tsx",
-                            lineNumber: 107,
+                            lineNumber: 113,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1133,13 +1374,13 @@ const LoginForm = ()=>{
                             children: isLoading ? "Logging in..." : "Login"
                         }, void 0, false, {
                             fileName: "[project]/app/components/LoginForm.tsx",
-                            lineNumber: 125,
+                            lineNumber: 131,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/LoginForm.tsx",
-                    lineNumber: 82,
+                    lineNumber: 84,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1149,7 +1390,7 @@ const LoginForm = ()=>{
                             children: "Don't have an account? "
                         }, void 0, false, {
                             fileName: "[project]/app/components/LoginForm.tsx",
-                            lineNumber: 135,
+                            lineNumber: 141,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1158,24 +1399,24 @@ const LoginForm = ()=>{
                             children: "Sign up"
                         }, void 0, false, {
                             fileName: "[project]/app/components/LoginForm.tsx",
-                            lineNumber: 136,
+                            lineNumber: 142,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/LoginForm.tsx",
-                    lineNumber: 134,
+                    lineNumber: 140,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/app/components/LoginForm.tsx",
-            lineNumber: 72,
+            lineNumber: 74,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/app/components/LoginForm.tsx",
-        lineNumber: 68,
+        lineNumber: 70,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1192,7 +1433,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$AuthContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/contexts/AuthContext.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$FormContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/contexts/FormContext.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Alert$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/Alert.tsx [app-ssr] (ecmascript)");
 "use client";
+;
 ;
 ;
 ;
@@ -1202,7 +1445,7 @@ const SignUpForm = ()=>{
     const [email, setEmail] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [password, setPassword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [confirmPassword, setConfirmPassword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
-    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [alert, setAlert] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const { signup } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$AuthContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAuth"])();
     const { closeForms, openLoginForm } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$FormContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useForm"])();
@@ -1215,25 +1458,44 @@ const SignUpForm = ()=>{
     }, []);
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        setError("");
+        setAlert(null);
         if (password !== confirmPassword) {
-            setError("Passwords do not match");
+            setAlert({
+                type: "error",
+                message: "Passwords do not match. Please try again."
+            });
             return;
         }
         if (password.length < 6) {
-            setError("Password must be at least 6 characters");
+            setAlert({
+                type: "error",
+                message: "Password must be at least 6 characters long."
+            });
             return;
         }
         setIsLoading(true);
         try {
             const success = await signup(name, email, password);
             if (success) {
-                closeForms();
+                setAlert({
+                    type: "success",
+                    message: "Account created successfully! Welcome aboard!"
+                });
+                // Close form after showing success message
+                setTimeout(()=>{
+                    closeForms();
+                }, 3000);
             } else {
-                setError("Failed to create account. Please try again.");
+                setAlert({
+                    type: "error",
+                    message: "Failed to create account. Email may already be in use."
+                });
             }
         } catch (err) {
-            setError("An error occurred. Please try again.");
+            setAlert({
+                type: "error",
+                message: "An error occurred. Please check your connection and try again."
+            });
         } finally{
             setIsLoading(false);
         }
@@ -1253,7 +1515,7 @@ const SignUpForm = ()=>{
                             children: "Sign Up"
                         }, void 0, false, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 65,
+                            lineNumber: 70,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1273,35 +1535,38 @@ const SignUpForm = ()=>{
                                     d: "M6 18L18 6M6 6l12 12"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/SignUpForm.tsx",
-                                    lineNumber: 81,
+                                    lineNumber: 86,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/app/components/SignUpForm.tsx",
-                                lineNumber: 73,
+                                lineNumber: 78,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 68,
+                            lineNumber: 73,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/SignUpForm.tsx",
-                    lineNumber: 64,
+                    lineNumber: 69,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                     onSubmit: handleSubmit,
                     className: "space-y-4",
                     children: [
-                        error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "rounded-lg bg-red-50 p-3 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400",
-                            children: error
+                        alert && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Alert$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            type: alert.type,
+                            message: alert.message,
+                            onClose: ()=>setAlert(null),
+                            autoClose: alert.type === "success",
+                            duration: 3000
                         }, void 0, false, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 92,
+                            lineNumber: 97,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1312,7 +1577,7 @@ const SignUpForm = ()=>{
                                     children: "Name"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/SignUpForm.tsx",
-                                    lineNumber: 98,
+                                    lineNumber: 107,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1325,13 +1590,13 @@ const SignUpForm = ()=>{
                                     placeholder: "Enter your name"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/SignUpForm.tsx",
-                                    lineNumber: 104,
+                                    lineNumber: 113,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 97,
+                            lineNumber: 106,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1342,7 +1607,7 @@ const SignUpForm = ()=>{
                                     children: "Email"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/SignUpForm.tsx",
-                                    lineNumber: 116,
+                                    lineNumber: 125,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1355,13 +1620,13 @@ const SignUpForm = ()=>{
                                     placeholder: "Enter your email"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/SignUpForm.tsx",
-                                    lineNumber: 122,
+                                    lineNumber: 131,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 115,
+                            lineNumber: 124,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1372,7 +1637,7 @@ const SignUpForm = ()=>{
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/SignUpForm.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 143,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1386,13 +1651,13 @@ const SignUpForm = ()=>{
                                     placeholder: "Enter your password (min. 6 characters)"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/SignUpForm.tsx",
-                                    lineNumber: 140,
+                                    lineNumber: 149,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 133,
+                            lineNumber: 142,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1403,7 +1668,7 @@ const SignUpForm = ()=>{
                                     children: "Confirm Password"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/SignUpForm.tsx",
-                                    lineNumber: 153,
+                                    lineNumber: 162,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1416,13 +1681,13 @@ const SignUpForm = ()=>{
                                     placeholder: "Confirm your password"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/SignUpForm.tsx",
-                                    lineNumber: 159,
+                                    lineNumber: 168,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 152,
+                            lineNumber: 161,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1432,13 +1697,13 @@ const SignUpForm = ()=>{
                             children: isLoading ? "Creating account..." : "Sign Up"
                         }, void 0, false, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 170,
+                            lineNumber: 179,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/SignUpForm.tsx",
-                    lineNumber: 90,
+                    lineNumber: 95,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1448,7 +1713,7 @@ const SignUpForm = ()=>{
                             children: "Already have an account? "
                         }, void 0, false, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 180,
+                            lineNumber: 189,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1457,24 +1722,24 @@ const SignUpForm = ()=>{
                             children: "Login"
                         }, void 0, false, {
                             fileName: "[project]/app/components/SignUpForm.tsx",
-                            lineNumber: 181,
+                            lineNumber: 190,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/SignUpForm.tsx",
-                    lineNumber: 179,
+                    lineNumber: 188,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/app/components/SignUpForm.tsx",
-            lineNumber: 60,
+            lineNumber: 65,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/app/components/SignUpForm.tsx",
-        lineNumber: 56,
+        lineNumber: 61,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1517,4 +1782,4 @@ const __TURBOPACK__default__export__ = FormModals;
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__a547bbff._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__45f4812d._.js.map

@@ -241,6 +241,7 @@ const useTasks = ()=>{
     const [tasks, setTasks] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [filter, setFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("all");
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [alert, setAlert] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     // Fetch tasks from backend on mount
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const fetchTasks = async ()=>{
@@ -268,6 +269,10 @@ const useTasks = ()=>{
                 }
             } catch (error) {
                 console.error("Failed to fetch tasks:", error);
+                setAlert({
+                    type: "error",
+                    message: "Failed to load tasks. Please refresh the page."
+                });
             } finally{
                 setIsLoading(false);
             }
@@ -302,9 +307,22 @@ const useTasks = ()=>{
                         ...prev,
                         formattedTask
                     ]);
+                setAlert({
+                    type: "success",
+                    message: "Task added successfully!"
+                });
+            } else {
+                setAlert({
+                    type: "error",
+                    message: "Failed to add task. Please try again."
+                });
             }
         } catch (error) {
             console.error("Failed to add task:", error);
+            setAlert({
+                type: "error",
+                message: "Failed to add task. Please check your connection."
+            });
         }
     }, []);
     const toggleTask = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (id)=>{
@@ -322,9 +340,22 @@ const useTasks = ()=>{
                             ...task,
                             completed: !task.completed
                         } : task));
+                setAlert({
+                    type: "success",
+                    message: "Task updated successfully!"
+                });
+            } else {
+                setAlert({
+                    type: "error",
+                    message: "Failed to update task. Please try again."
+                });
             }
         } catch (error) {
             console.error("Failed to toggle task:", error);
+            setAlert({
+                type: "error",
+                message: "Failed to update task. Please check your connection."
+            });
         }
     }, []);
     const deleteTask = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (id)=>{
@@ -339,9 +370,22 @@ const useTasks = ()=>{
             });
             if (response.ok) {
                 setTasks((prev)=>prev.filter((task)=>task.id !== id));
+                setAlert({
+                    type: "success",
+                    message: "Task deleted successfully!"
+                });
+            } else {
+                setAlert({
+                    type: "error",
+                    message: "Failed to delete task. Please try again."
+                });
             }
         } catch (error) {
             console.error("Failed to delete task:", error);
+            setAlert({
+                type: "error",
+                message: "Failed to delete task. Please check your connection."
+            });
         }
     }, []);
     const filteredTasks = tasks.filter((task)=>{
@@ -357,7 +401,9 @@ const useTasks = ()=>{
         addTask,
         toggleTask,
         deleteTask,
-        isLoading
+        isLoading,
+        alert,
+        clearAlert: ()=>setAlert(null)
     };
 };
 const __TURBOPACK__default__export__ = useTasks;
@@ -376,7 +422,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TaskFor
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TaskList$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/TaskList.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$hooks$2f$useTasks$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/hooks/useTasks.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$AuthContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/contexts/AuthContext.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Alert$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/Alert.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$AlertContainer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/components/AlertContainer.tsx [app-ssr] (ecmascript)");
 "use client";
+;
+;
 ;
 ;
 ;
@@ -387,7 +437,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$AuthConte
 const TaskManagerPage = ()=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const { isAuthenticated, isLoading: authLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$contexts$2f$AuthContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAuth"])();
-    const { tasks, filter, setFilter, addTask, toggleTask, deleteTask, isLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$hooks$2f$useTasks$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])();
+    const { tasks, filter, setFilter, addTask, toggleTask, deleteTask, isLoading, alert, clearAlert } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$hooks$2f$useTasks$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (!authLoading && !isAuthenticated) {
             router.push("/");
@@ -405,12 +455,12 @@ const TaskManagerPage = ()=>{
                 children: "Checking authentication..."
             }, void 0, false, {
                 fileName: "[project]/app/task-manager/page.tsx",
-                lineNumber: 33,
+                lineNumber: 37,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/app/task-manager/page.tsx",
-            lineNumber: 32,
+            lineNumber: 36,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
@@ -422,81 +472,102 @@ const TaskManagerPage = ()=>{
                 children: "Loading tasks..."
             }, void 0, false, {
                 fileName: "[project]/app/task-manager/page.tsx",
-                lineNumber: 41,
+                lineNumber: 45,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/app/task-manager/page.tsx",
-            lineNumber: 40,
+            lineNumber: 44,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     }
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-zinc-50 py-4 dark:bg-zinc-950 sm:py-8 md:py-12",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "mx-auto w-full max-w-2xl px-3 sm:px-4 md:px-6 lg:px-8",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mb-6 text-center sm:mb-8",
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-zinc-50 py-4 dark:bg-zinc-950 sm:py-8 md:py-12",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mx-auto w-full max-w-2xl px-3 sm:px-4 md:px-6 lg:px-8",
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl md:text-4xl lg:text-5xl",
-                            children: "Task Manager"
-                        }, void 0, false, {
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mb-6 text-center sm:mb-8",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                    className: "text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl md:text-4xl lg:text-5xl",
+                                    children: "Task Manager"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/task-manager/page.tsx",
+                                    lineNumber: 55,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "mt-1.5 text-sm text-zinc-600 dark:text-zinc-400 sm:mt-2 sm:text-base md:text-lg",
+                                    children: "Organize your tasks efficiently"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/task-manager/page.tsx",
+                                    lineNumber: 58,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
                             fileName: "[project]/app/task-manager/page.tsx",
-                            lineNumber: 50,
+                            lineNumber: 54,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "mt-1.5 text-sm text-zinc-600 dark:text-zinc-400 sm:mt-2 sm:text-base md:text-lg",
-                            children: "Organize your tasks efficiently"
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "mb-4 sm:mb-6",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TaskForm$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                onAddTask: addTask
+                            }, void 0, false, {
+                                fileName: "[project]/app/task-manager/page.tsx",
+                                lineNumber: 64,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/app/task-manager/page.tsx",
-                            lineNumber: 53,
+                            lineNumber: 63,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TaskList$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                            tasks: tasks,
+                            filter: filter,
+                            onFilterChange: setFilter,
+                            onToggle: toggleTask,
+                            onDelete: deleteTask
+                        }, void 0, false, {
+                            fileName: "[project]/app/task-manager/page.tsx",
+                            lineNumber: 67,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/task-manager/page.tsx",
-                    lineNumber: 49,
-                    columnNumber: 9
-                }, ("TURBOPACK compile-time value", void 0)),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mb-4 sm:mb-6",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TaskForm$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                        onAddTask: addTask
-                    }, void 0, false, {
-                        fileName: "[project]/app/task-manager/page.tsx",
-                        lineNumber: 59,
-                        columnNumber: 11
-                    }, ("TURBOPACK compile-time value", void 0))
-                }, void 0, false, {
-                    fileName: "[project]/app/task-manager/page.tsx",
-                    lineNumber: 58,
-                    columnNumber: 9
-                }, ("TURBOPACK compile-time value", void 0)),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TaskList$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                    tasks: tasks,
-                    filter: filter,
-                    onFilterChange: setFilter,
-                    onToggle: toggleTask,
-                    onDelete: deleteTask
-                }, void 0, false, {
-                    fileName: "[project]/app/task-manager/page.tsx",
-                    lineNumber: 62,
+                    lineNumber: 53,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
-            ]
-        }, void 0, true, {
-            fileName: "[project]/app/task-manager/page.tsx",
-            lineNumber: 48,
-            columnNumber: 7
-        }, ("TURBOPACK compile-time value", void 0))
-    }, void 0, false, {
-        fileName: "[project]/app/task-manager/page.tsx",
-        lineNumber: 47,
-        columnNumber: 5
-    }, ("TURBOPACK compile-time value", void 0));
+            }, void 0, false, {
+                fileName: "[project]/app/task-manager/page.tsx",
+                lineNumber: 52,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            alert && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$AlertContainer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Alert$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    type: alert.type,
+                    message: alert.message,
+                    onClose: clearAlert,
+                    autoClose: true,
+                    duration: 3000
+                }, void 0, false, {
+                    fileName: "[project]/app/task-manager/page.tsx",
+                    lineNumber: 79,
+                    columnNumber: 11
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/app/task-manager/page.tsx",
+                lineNumber: 78,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true);
 };
 const __TURBOPACK__default__export__ = TaskManagerPage;
 }),

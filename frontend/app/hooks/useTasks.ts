@@ -3,10 +3,18 @@
 import { useState, useEffect, useCallback } from "react";
 import type { Task } from "../types/task";
 
+export type AlertType = "success" | "error" | "info" | "warning";
+
+interface AlertState {
+  type: AlertType;
+  message: string;
+}
+
 const useTasks = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
   const [isLoading, setIsLoading] = useState(true);
+  const [alert, setAlert] = useState<AlertState | null>(null);
 
   // Fetch tasks from backend on mount
   useEffect(() => {
@@ -35,6 +43,7 @@ const useTasks = () => {
         }
       } catch (error) {
         console.error("Failed to fetch tasks:", error);
+        setAlert({ type: "error", message: "Failed to load tasks. Please refresh the page." });
       } finally {
         setIsLoading(false);
       }
@@ -68,9 +77,13 @@ const useTasks = () => {
           createdAt: new Date().toISOString(),
         };
         setTasks((prev) => [...prev, formattedTask]);
+        setAlert({ type: "success", message: "Task added successfully!" });
+      } else {
+        setAlert({ type: "error", message: "Failed to add task. Please try again." });
       }
     } catch (error) {
       console.error("Failed to add task:", error);
+      setAlert({ type: "error", message: "Failed to add task. Please check your connection." });
     }
   }, []);
 
@@ -90,9 +103,13 @@ const useTasks = () => {
             task.id === id ? { ...task, completed: !task.completed } : task
           )
         );
+        setAlert({ type: "success", message: "Task updated successfully!" });
+      } else {
+        setAlert({ type: "error", message: "Failed to update task. Please try again." });
       }
     } catch (error) {
       console.error("Failed to toggle task:", error);
+      setAlert({ type: "error", message: "Failed to update task. Please check your connection." });
     }
   }, []);
 
@@ -108,9 +125,13 @@ const useTasks = () => {
 
       if (response.ok) {
         setTasks((prev) => prev.filter((task) => task.id !== id));
+        setAlert({ type: "success", message: "Task deleted successfully!" });
+      } else {
+        setAlert({ type: "error", message: "Failed to delete task. Please try again." });
       }
     } catch (error) {
       console.error("Failed to delete task:", error);
+      setAlert({ type: "error", message: "Failed to delete task. Please check your connection." });
     }
   }, []);
 
@@ -129,6 +150,8 @@ const useTasks = () => {
     toggleTask,
     deleteTask,
     isLoading,
+    alert,
+    clearAlert: () => setAlert(null),
   };
 };
 

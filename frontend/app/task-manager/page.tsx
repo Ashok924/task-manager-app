@@ -6,6 +6,8 @@ import TaskForm from "../components/TaskForm";
 import TaskList from "../components/TaskList";
 import useTasks from "../hooks/useTasks";
 import { useAuth } from "../contexts/AuthContext";
+import Alert from "../components/Alert";
+import AlertContainer from "../components/AlertContainer";
 
 const TaskManagerPage = () => {
   const router = useRouter();
@@ -19,6 +21,8 @@ const TaskManagerPage = () => {
     toggleTask,
     deleteTask,
     isLoading,
+    alert,
+    clearAlert,
   } = useTasks();
 
   useEffect(() => {
@@ -44,30 +48,44 @@ const TaskManagerPage = () => {
   }
 
   return (
-    <div className="bg-zinc-50 py-4 dark:bg-zinc-950 sm:py-8 md:py-12">
-      <div className="mx-auto w-full max-w-2xl px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="mb-6 text-center sm:mb-8">
-          <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl md:text-4xl lg:text-5xl">
-            Task Manager
-          </h1>
-          <p className="mt-1.5 text-sm text-zinc-600 dark:text-zinc-400 sm:mt-2 sm:text-base md:text-lg">
-            Organize your tasks efficiently
-          </p>
-        </div>
+    <>
+      <div className="bg-zinc-50 py-4 dark:bg-zinc-950 sm:py-8 md:py-12">
+        <div className="mx-auto w-full max-w-2xl px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="mb-6 text-center sm:mb-8">
+            <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl md:text-4xl lg:text-5xl">
+              Task Manager
+            </h1>
+            <p className="mt-1.5 text-sm text-zinc-600 dark:text-zinc-400 sm:mt-2 sm:text-base md:text-lg">
+              Organize your tasks efficiently
+            </p>
+          </div>
 
-        <div className="mb-4 sm:mb-6">
-          <TaskForm onAddTask={addTask} />
-        </div>
+          <div className="mb-4 sm:mb-6">
+            <TaskForm onAddTask={addTask} />
+          </div>
 
-        <TaskList
-          tasks={tasks}
-          filter={filter}
-          onFilterChange={setFilter}
-          onToggle={toggleTask}
-          onDelete={deleteTask}
-        />
+          <TaskList
+            tasks={tasks}
+            filter={filter}
+            onFilterChange={setFilter}
+            onToggle={toggleTask}
+            onDelete={deleteTask}
+          />
+        </div>
       </div>
-    </div>
+
+      {alert && (
+        <AlertContainer>
+          <Alert
+            type={alert.type}
+            message={alert.message}
+            onClose={clearAlert}
+            autoClose={true}
+            duration={3000}
+          />
+        </AlertContainer>
+      )}
+    </>
   );
 };
 
